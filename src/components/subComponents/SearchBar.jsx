@@ -6,14 +6,12 @@ const SearchBar = () => {
   const [ownerName, setOwnerName] = useState("");
   const [ownerReposatiry, setOwnerReposatiry] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
-  const [forksValue, setForksValue] = useState([]);
-  const [favourite, setFavourite] = useState({});
 
   const { data, error, isLoading } = useGetForksByNameQuery(searchQuery);
 
   async function handleOnSubmit(e) {
     e.preventDefault();
-    setSearchQuery(`${ownerName}/${ownerReposatiry}`);
+    ownerName.length > 0 && ownerReposatiry.length > 0 && setSearchQuery(`${ownerName}/${ownerReposatiry}`);
   }
 
   return (
