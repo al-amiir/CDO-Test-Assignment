@@ -5,9 +5,12 @@ export const githubAPI = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://api.github.com" }),
   endpoints: (builder) => ({
     getForksByName: builder.query({
-      query: (name) => `/repos/${name}/forks`,
+      query: (name) => `/repos/${name}`,
+    }),
+    getForksLimit: builder.query({
+      query: (name) => `/repos/${name}`,
     }),
   }),
 });
 
-export const { useGetForksByNameQuery } = githubAPI;
+export const { useGetForksByNameQuery, useGetForksLimitQuery } = githubAPI;
