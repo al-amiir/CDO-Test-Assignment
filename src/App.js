@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
-import { useGetForksByNameQuery } from "./services/githubAPI";
+import HomePage from "./components/pages/HomePage";
 
 const App = () => {
-  const { data, error, isLoading } = useGetForksByNameQuery("defunkt/ace");
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
-  return <div>App</div>;
+  return (
+    <div>
+      <HomePage />
+    </div>
+  );
 };
 
 export default App;
