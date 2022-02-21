@@ -1,12 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-// import counterReducer from '../features/counter/counterSlice';
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { githubAPI } from "../services/githubAPI";
-
+import githubApiSlice from "../features/githubAPI/githubAPISlice";
 export const store = configureStore({
   reducer: {
-    // counter: counterReducer,
+    github: githubApiSlice,
     [githubAPI.reducerPath]: githubAPI.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(githubAPI.middleware),

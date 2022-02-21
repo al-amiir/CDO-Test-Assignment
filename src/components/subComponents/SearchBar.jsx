@@ -27,7 +27,7 @@ const SearchBar = () => {
         <button onClick={handleOnSubmit}>Search</button>
       </form>
 
-      {isLoading ? "Loading" : error && searchQuery.length > 0 ? `${error.data.message}` : data ? data.map((value) => <TableOfForks key={value.id} value={value} />) : ""}
+      {isLoading && searchQuery.length > 0 ? "Loading" : error && searchQuery.length > 0 ? `${error.data.message}` : data ? data.map((value) => <TableOfForks key={value.id} value={value} />) : ""}
     </div>
   );
 };
