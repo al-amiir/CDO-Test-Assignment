@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import HomePage from "./components/pages/HomePage";
 // React Router
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import FavouriteForksPage from "./components/pages/FavouriteForksPage";
 
 const App = () => {

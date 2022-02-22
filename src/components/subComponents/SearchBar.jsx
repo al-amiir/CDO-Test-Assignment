@@ -5,7 +5,6 @@ import Pagination from "./Pagination";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import { updateOwnerName, updateOwnerRepositry, updateSearchQuery, updateSearchForksLimit } from "../../features/githubAPI/githubAPISlice";
-
 // css
 import "../../styles/components/tableOfForks.css";
 
@@ -51,7 +50,7 @@ const SearchBar = () => {
           <input className="searchBar-form--input" type="text" placeholder="Repository Name" value={ownerReposatiry} onInput={(e) => dispatch(updateOwnerRepositry(e.target.value))} />
         </div>
         <button className="searchBar-form--button" onClick={handleOnSubmit}>
-          <img src="https://img.icons8.com/pastel-glyph/30/000000/search--v1.png" />
+          <img src="https://img.icons8.com/pastel-glyph/30/000000/search--v1.png" alt="search-icon" />
         </button>
       </form>
 

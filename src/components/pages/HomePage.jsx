@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <div className="home">
       <p className="home-header">
-        <img style={{ filter: "invert(1)", marginRight: "10px" }} src="https://img.icons8.com/ios-filled/55  /000000/github.png" />
+        <img style={{ filter: "invert(1)", marginRight: "10px" }} src="https://img.icons8.com/ios-filled/55/000000/github.png" alt="github" />
         <span>Welcome</span>
       </p>
       <Link to="/favourite-forks" className="links">
