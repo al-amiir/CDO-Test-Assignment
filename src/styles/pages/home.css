@@ -1,0 +1,14 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-header {
+  color: white;
+  font-size: 60px;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+}

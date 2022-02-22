@@ -62,15 +62,17 @@ const SearchBar = () => {
           <p className="error-message">{error.data.message}</p>
         ) : data ? (
           <table>
-            <tr>
-              <th>Owner</th>
-              <th>Stars</th>
-              <th>URL</th>
-              <th>Add to favourite</th>
-            </tr>
-            {data?.map((value) => (
-              <TableOfForks key={value.id} value={value} />
-            ))}
+            <tbody>
+              <tr>
+                <th>Owner</th>
+                <th>Stars</th>
+                <th>URL</th>
+                <th>Add to favourite</th>
+              </tr>
+              {data?.map((value) => (
+                <TableOfForks key={value.id} value={value} />
+              ))}
+            </tbody>
           </table>
         ) : (
           ""
