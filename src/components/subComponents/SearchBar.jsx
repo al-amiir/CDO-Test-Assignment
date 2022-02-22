@@ -3,6 +3,9 @@ import TableOfForks from "./TableOfForks";
 import { useGetForksByNameQuery, useGetForksLimitQuery } from "../../services/githubAPI";
 import Pagination from "./Pagination";
 
+// css
+import "../../styles/components/tableOfForks.css";
+
 const SearchBar = () => {
   // Form Inputs
   const [ownerName, setOwnerName] = useState("");
@@ -46,7 +49,30 @@ const SearchBar = () => {
           <img src="https://img.icons8.com/pastel-glyph/30/000000/search--v1.png" />
         </button>
       </form>
-      {searchQuery.length > 0 ? (isLoading && searchQuery.length > 0 ? "Loading" : error && searchQuery.length > 0 ? `${error.data.message}` : data ? data?.map((value) => <TableOfForks key={value.id} value={value} />) : "") : ""}
+
+      {searchQuery.length > 0 ? (
+        isLoading && searchQuery.length > 0 ? (
+          "Loading"
+        ) : error && searchQuery.length > 0 ? (
+          `${error.data.message}`
+        ) : data ? (
+          <table>
+            <tr>
+              <th>Owner</th>
+              <th>Stars</th>
+              <th>URL</th>
+              <th>Add to favourite</th>
+            </tr>
+            {data?.map((value) => (
+              <TableOfForks key={value.id} value={value} />
+            ))}
+          </table>
+        ) : (
+          ""
+        )
+      ) : (
+        ""
+      )}
       {!error && data && <Pagination page={page} setPage={setPage} totalPages={totalPages} />}
     </div>
   );
