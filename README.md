@@ -22,6 +22,9 @@ repositoryName).
 ## Heroku Link 
 https://cdo-test-assignment.herokuapp.com/
 
+## Video
+https://watch.screencastify.com/v/0Qfk3UegkSyGDsQWDSmm
+
 ## Setup
 
 ```
