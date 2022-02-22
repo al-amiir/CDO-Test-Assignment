@@ -9,7 +9,9 @@ const FavouriteForksPage = () => {
 
   return (
     <div>
-      <Link to="/"> Home </Link>
+      <Link to="/" className="links">
+        Home
+      </Link>
       {Object.keys(githubFavouriteForks).map((value) => (
         <TableOfFavouriteForks value={githubFavouriteForks[value]} />
       ))}

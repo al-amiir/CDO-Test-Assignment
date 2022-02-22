@@ -30,10 +30,6 @@ const SearchBar = () => {
     }
   }
 
-  // useEffect(() => {
-  //   setSearchQuery(`${ownerName}/${ownerReposatiry}/forks?page=${page}`);
-  // }, [page]);
-
   useEffect(() => {
     forksCount && setTotalPages(Math.ceil(forksCount?.forks / 30));
   }, [forksCount]);
@@ -41,12 +37,14 @@ const SearchBar = () => {
   return (
     <div>
       <form style={{ display: "flex" }}>
-        <div style={{ width: "400px", display: "flex", alignItems: "center", border: "2px solid", borderRadius: "3px", padding: "5px" }}>
-          <input type="text" placeholder="Owner" value={ownerName} onInput={(e) => setOwnerName(e.target.value)} style={{ width: "150px", maxWidth: "fit-content", border: "none", outline: "none", fontSize: "15px" }} />
+        <div className="searchBar-form">
+          <input className="searchBar-form--input" type="text" placeholder="Owner" value={ownerName} onInput={(e) => setOwnerName(e.target.value)} />
           <span>/</span>
-          <input type="text" placeholder="Repository Name" onInput={(e) => setOwnerReposatiry(e.target.value)} style={{ width: "150px", maxWidth: "fit-content", border: "none", outline: "none", fontSize: "15px" }} />
+          <input className="searchBar-form--input" type="text" placeholder="Repository Name" onInput={(e) => setOwnerReposatiry(e.target.value)} />
         </div>
-        <button onClick={handleOnSubmit}>Search</button>
+        <button className="searchBar-form--button" onClick={handleOnSubmit}>
+          <img src="https://img.icons8.com/pastel-glyph/30/000000/search--v1.png" />
+        </button>
       </form>
       {searchQuery.length > 0 ? (isLoading && searchQuery.length > 0 ? "Loading" : error && searchQuery.length > 0 ? `${error.data.message}` : data ? data?.map((value) => <TableOfForks key={value.id} value={value} />) : "") : ""}
       {!error && data && <Pagination page={page} setPage={setPage} totalPages={totalPages} />}

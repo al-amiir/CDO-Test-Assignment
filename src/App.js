@@ -6,7 +6,7 @@ import FavouriteForksPage from "./components/pages/FavouriteForksPage";
 
 const App = () => {
   return (
-    <div>
+    <div style={{ height: "100vh", backgroundColor: "#0D1117" }}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/favourite-forks" element={<FavouriteForksPage />} />
