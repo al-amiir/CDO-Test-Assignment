@@ -19,6 +19,9 @@ repositoryName).
 7. I must have a navigation bar to home and favorites pages.
 8. Table must have paging.
 
+## Heroku Link 
+https://cdo-test-assignment.herokuapp.com/
+
 ## Setup
 
 ```
