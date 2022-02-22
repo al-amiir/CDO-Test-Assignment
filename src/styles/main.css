@@ -1,3 +1,7 @@
+@import url(./components/links.css);
+@import url(./components/searchBar.css);
+@import url(./components/pagination.css);
+
 *,
 *::before,
 *::after {
@@ -7,7 +11,5 @@
 
 body {
   font-family: sans-serif;
+  background-color: rgb(13, 17, 23);
 }
-
-@import url(./components/links.css);
-@import url(./components/searchBar.css);

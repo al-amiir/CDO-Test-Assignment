@@ -27,3 +27,14 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+.loading-message {
+  font-size: 27px;
+  color: green;
+  margin-top: 13px;
+}
+.error-message {
+  font-size: 27px;
+  color: crimson;
+  margin-top: 13px;
+}

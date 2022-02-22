@@ -38,7 +38,7 @@ const SearchBar = () => {
   }, [forksCount]);
 
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <form style={{ display: "flex" }}>
         <div className="searchBar-form">
           <input className="searchBar-form--input" type="text" placeholder="Owner" value={ownerName} onInput={(e) => setOwnerName(e.target.value)} />
@@ -52,9 +52,9 @@ const SearchBar = () => {
 
       {searchQuery.length > 0 ? (
         isLoading && searchQuery.length > 0 ? (
-          "Loading"
+          <p className="loading-message">Loading ...</p>
         ) : error && searchQuery.length > 0 ? (
-          `${error.data.message}`
+          <p className="error-message">{error.data.message}</p>
         ) : data ? (
           <table>
             <tr>

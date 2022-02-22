@@ -5,24 +5,26 @@ import { addFavouriteFork, removeFavouriteFork } from "../../features/githubAPI/
 const TableOfFavouriteForks = ({ value }) => {
   const dispatch = useDispatch();
   return (
-    <div>
-      <div>{value.full_name}</div>
-      <div>{value.owner.login}</div>
-      <div>{value.stargazers_count}</div>
-      <a target="_blank" href={`${value.html_url}`}>
-        link
-      </a>
-      <div>
+    <tr>
+      <td>{value.owner.login}</td>
+      <td>{value.stargazers_count}</td>
+      <td>
+        <a target="_blank" href={`${value.html_url}`}>
+          link
+        </a>
+      </td>
+      <td>
         <button
-          style={{ width: "90px", display: "flex", justifyContent: "space-between", alignItems: "center" }}
+          className="button-remove"
           onClick={() => {
             dispatch(removeFavouriteFork(value));
           }}
         >
+          <img src="https://img.icons8.com/material-outlined/17/000000/trash--v1.png" />
           Remove
         </button>
-      </div>
-    </div>
+      </td>
+    </tr>
   );
 };
 

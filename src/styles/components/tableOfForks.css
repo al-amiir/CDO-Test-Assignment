@@ -33,3 +33,15 @@ tr:nth-child(even) {
   border: 1px solid #363b42;
   cursor: pointer;
 }
+
+.button-remove {
+  width: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 5px;
+  background-color: #771d1d;
+  color: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
