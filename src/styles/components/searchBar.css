@@ -1,7 +1,6 @@
 .searchBar-form {
   display: flex;
   align-items: center;
-  border: 2px solid;
   border-radius: 5px;
   padding: 3px 8px;
   background-color: white;
