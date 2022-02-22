@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addFavouriteFork, removeFavouriteFork } from "../../features/githubAPI/githubAPISlice";
+import { removeFavouriteFork } from "../../features/githubAPI/githubAPISlice";
 
 const TableOfFavouriteForks = ({ value }) => {
   const dispatch = useDispatch();
