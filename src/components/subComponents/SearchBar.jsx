@@ -54,31 +54,7 @@ const SearchBar = () => {
         </button>
       </form>
 
-      {searchQuery.length > 0 ? (
-        isLoading && searchQuery.length > 0 ? (
-          <p className="loading-message">Loading ...</p>
-        ) : error && searchQuery.length > 0 ? (
-          <p className="error-message">{error.data.message}</p>
-        ) : data ? (
-          <table>
-            <tbody>
-              <tr>
-                <th>Owner</th>
-                <th>Stars</th>
-                <th>URL</th>
-                <th>Add to favourite</th>
-              </tr>
-              {data?.map((value) => (
-                <TableOfForks key={value.id} value={value} />
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          ""
-        )
-      ) : (
-        ""
-      )}
+      {searchQuery.length > 0 ? isLoading && searchQuery.length > 0 ? <p className="loading-message">Loading ...</p> : error && searchQuery.length > 0 ? <p className="error-message">{error.data.message}</p> : data ? <TableOfForks data={data} /> : "" : ""}
       {!error && data && <Pagination totalPages={totalPages} />}
     </div>
   );
