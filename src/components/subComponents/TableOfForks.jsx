@@ -6,6 +6,7 @@ import { getFirestoreForks, getFirestoreForksID } from "../../features/githubAPI
 import { getForks, createFork, deleteFork } from "../../firebase-config";
 
 const TableOfForks = ({ data }) => {
+  const [addBoolean, setAddBoolean] = useState(false);
   const [counter, setCounter] = useState(0);
   const dispatch = useDispatch();
 
