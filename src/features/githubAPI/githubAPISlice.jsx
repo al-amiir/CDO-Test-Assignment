@@ -12,8 +12,13 @@ const initialState = {
   // Pagination
   page: 1,
 
-  // Favourtie Repos
-  favourtieForks: {},
+  // // Favourtie Repos
+  // favourtieForks: {},
+
+  // FireStore Array Of Values
+  firestoreForks: [],
+  // FireStore Array Of id to quick check if a specific value is into firestoreForks
+  firestoreForksID: [],
 };
 
 export const githubApiSlice = createSlice({
@@ -36,15 +41,21 @@ export const githubApiSlice = createSlice({
     updatePage: (state, action) => {
       state.page = action.payload;
     },
-    addFavouriteFork: (state, action) => {
-      state.favourtieForks = { ...state.favourtieForks, [action.payload.id]: action.payload };
+    getFirestoreForks: (state, action) => {
+      state.firestoreForks = [...action.payload];
     },
-    removeFavouriteFork: (state, actoin) => {
-      delete state.favourtieForks[actoin.payload.id];
+    getFirestoreForksID: (state, action) => {
+      state.firestoreForksID = [...action.payload];
     },
+    // addFavouriteFork: (state, action) => {
+    //   state.favourtieForks = { ...state.favourtieForks, [action.payload.id]: action.payload };
+    // },
+    // removeFavouriteFork: (state, actoin) => {
+    //   delete state.favourtieForks[actoin.payload.id];
+    // },
   },
 });
 
-export const { updateOwnerName, updateOwnerRepositry, updateSearchQuery, updateSearchForksLimit, addFavouriteFork, removeFavouriteFork, updatePage } = githubApiSlice.actions;
+export const { updateOwnerName, updateOwnerRepositry, updateSearchQuery, updateSearchForksLimit, updatePage, getFirestoreForks, getFirestoreForksID } = githubApiSlice.actions;
 
 export default githubApiSlice.reducer;

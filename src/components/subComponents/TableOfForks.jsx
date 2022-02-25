@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addFavouriteFork, removeFavouriteFork } from "../../features/githubAPI/githubAPISlice";
+import { getFirestoreForks, getFirestoreForksID } from "../../features/githubAPI/githubAPISlice";
+
+// firestore
+import { getForks, createFork, deleteFork } from "../../firebase-config";
+
 const TableOfForks = ({ data }) => {
-  const githubFavouriteForks = useSelector((state) => state.github.favourtieForks);
+  const [counter, setCounter] = useState(0);
   const dispatch = useDispatch();
+
+  const firestoreForks = useSelector((state) => state.github.firestoreForks);
+  const firestoreForksID = useSelector((state) => state.github.firestoreForksID);
+
+  // On every update of add or remove of favourtite to firestore, getforks will fired
+  useEffect(() => {
+    getForks(dispatch, getFirestoreForks, getFirestoreForksID);
+  }, [counter]);
 
   return (
     <table>
@@ -27,10 +39,17 @@ const TableOfForks = ({ data }) => {
               <button
                 className="button-favourite"
                 onClick={() => {
-                  githubFavouriteForks.hasOwnProperty(value.id) ? dispatch(removeFavouriteFork(value)) : dispatch(addFavouriteFork(value));
+                  if (firestoreForksID.includes(value.id)) {
+                    let [temp] = firestoreForks.filter((fork) => fork.id === value.id);
+                    deleteFork(temp.firestoreID);
+                    setCounter((prev) => prev - 1);
+                  } else {
+                    createFork(value);
+                    setCounter((prev) => prev + 1);
+                  }
                 }}
               >
-                {githubFavouriteForks.hasOwnProperty(value.id) ? <img src="https://img.icons8.com/emoji/15/000000/star-emoji.png" /> : <img src="https://img.icons8.com/windows/15/000000/star--v1.png" />}
+                {firestoreForksID.includes(value.id) ? <img src="https://img.icons8.com/emoji/15/000000/star-emoji.png" /> : <img src="https://img.icons8.com/windows/15/000000/star--v1.png" />}
                 Favourite
               </button>
             </td>
